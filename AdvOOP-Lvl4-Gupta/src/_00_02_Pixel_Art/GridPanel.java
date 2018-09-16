@@ -15,6 +15,8 @@ public class GridPanel extends JPanel{
 	private int pixelHeight;
 	private int rows;
 	private int cols;
+	int xcoordinate;
+	int ycoordinate;
 	
 	//1. Create a 2D array of pixels. Do not initialize it yet.
 	Pixel[][] pixels; 
@@ -52,6 +54,9 @@ public class GridPanel extends JPanel{
 	public void clickPixel(int mouseX, int mouseY) {
 		//5. Use the mouseX and mouseY variables to change the color
 		//   of the pixel that was clicked. *HINT* Use the pixel's dimensions.
+		xcoordinate = mouseX/pixelWidth;
+		ycoordinate = mouseY/pixelHeight;
+		pixels[xcoordinate][ycoordinate].color = color;
 		
 	}
 	
