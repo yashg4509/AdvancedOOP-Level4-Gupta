@@ -1,4 +1,4 @@
-package _04_Maze_Maker;
+package _00_04_Maze_Maker;
 import java.awt.Graphics;
 
 public class Maze {
