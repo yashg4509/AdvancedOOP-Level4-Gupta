@@ -33,7 +33,7 @@ public class MazeMaker{
 	//6. Complete the selectNextPathMethod
 	private static void selectNextPath(Cell currentCell) {
 		//A. mark cell as visited
-		currentCell.hasBeenVisited();
+		currentCell.setBeenVisited(true);
 		//B. check for unvisited neighbors using the cell
 		ArrayList<Cell> notVisited = getUnvisitedNeighbors(currentCell);
 		System.out.println(notVisited.size());
@@ -42,10 +42,13 @@ public class MazeMaker{
 			uncheckedCells.push(rand2);
 			removeWalls(currentCell, rand2);
 			currentCell = rand2;
-			currentCell.hasBeenVisited();
+			currentCell.setBeenVisited(true);
+			selectNextPath(currentCell);
+			
 		} else if (notVisited.size() == 0) {
 			if(uncheckedCells.isEmpty() == false) {
 				currentCell = uncheckedCells.pop();
+				selectNextPath(currentCell);
 		}
 		}
 	}
@@ -67,6 +70,9 @@ public class MazeMaker{
 				// D1a. pop a cell from the stack
 		
 				// D1b. make that the current cell
+	
+				// D1c. call the selectNextPath method with the current cell
+
 				
 			
 		
@@ -100,9 +106,44 @@ public class MazeMaker{
 	//   to the ArrayList
 	private static ArrayList<Cell> getUnvisitedNeighbors(Cell c) {
 		ArrayList<Cell> unvisitedNeighbors = new ArrayList<>();
-		if(c.hasBeenVisited() == false) {
-			unvisitedNeighbors.add(c);
+		Cell empty = new Cell(-2, -5);
+		Cell left = empty;
+		Cell right = empty;
+		Cell up = empty;
+		Cell down = empty;
+		
+		if(c.getX() - 1 >= 0) {
+			left = maze.cells[(c.getX() - 1)][c.getY()];
 		}
+		
+		if(c.getX() + 1 <= (width - 1)) {
+			right = maze.cells[(c.getX() + 1)][c.getY()];
+		}
+		
+		if(c.getY() - 1 >= 0) {
+			up = maze.cells[c.getX()][(c.getY() - 1)];
+		}
+		
+		if(c.getY() + 1 <= (height - 1)) {
+			down = maze.cells[c.getX()][(c.getY()+1)];
+		}
+		
+		if((left != empty)&&(left.hasBeenVisited() == false)) {
+			unvisitedNeighbors.add(left);
+		}
+		
+		if((right.hasBeenVisited() == false) && (right != empty)) {
+			unvisitedNeighbors.add(right);
+		}
+		
+		if((up.hasBeenVisited() == false) && (up != empty)) {
+			unvisitedNeighbors.add(up);
+		}
+		
+		if((down.hasBeenVisited() == false)&&(down != empty)) {
+			unvisitedNeighbors.add(down);
+		}
+		
 		return unvisitedNeighbors;
 	}
 }
