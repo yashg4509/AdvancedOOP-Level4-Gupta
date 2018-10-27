@@ -1,4 +1,4 @@
-package _03_Conways_Game_of_Life;
+package _00_03_Conways_Game_of_Life;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -28,7 +28,19 @@ public class Cell implements Drawable{
 	 * (source: Wikipedia)
 	 * */
 	public void liveOrDie(int numNeighbors) {
-		
+		if (isAlive == true) {
+			if (numNeighbors < 2) {
+				isAlive = false;
+			} else if (numNeighbors == 2 || numNeighbors == 3) {
+				isAlive = true;
+			} else if (numNeighbors > 3) {
+				isAlive = false;
+			}
+		} else {
+			if (numNeighbors == 3) {
+				isAlive = true;
+			}
+		}
 	}
 	
 	public int getX() {
@@ -45,9 +57,15 @@ public class Cell implements Drawable{
 	@Override
 	public void draw(Graphics g) {
 	
+		if(isAlive == true) {
+			g.setColor(Color.blue);
+			g.fillRect(x, y, cellSize, cellSize);
+		}
 		
-		
-		
+		if(isAlive == false) {
+			g.setColor(Color.gray);
+			g.fillRect(x, y, cellSize, cellSize);
+		}
 		
 		
 	}

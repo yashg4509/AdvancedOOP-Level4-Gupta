@@ -1,4 +1,4 @@
-package _03_Conways_Game_of_Life;
+package _00_03_Conways_Game_of_Life;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
