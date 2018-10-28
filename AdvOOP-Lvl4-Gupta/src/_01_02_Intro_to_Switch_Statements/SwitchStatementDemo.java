@@ -1,4 +1,4 @@
-package _02_Intro_to_Switch_Statements;
+package _01_02_Intro_to_Switch_Statements;
 
 import java.util.Random;
 

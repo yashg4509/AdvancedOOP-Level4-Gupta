@@ -1,4 +1,4 @@
-package _03_Switch_Statement_Practice;
+package _01_03_Switch_Statement_Practice;
 
 import javax.swing.JOptionPane;
 

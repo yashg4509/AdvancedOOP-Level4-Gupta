@@ -1,4 +1,4 @@
-package _00_Intro_To_Templates;
+package _01_00_Intro_To_Templates;
 
 import java.util.Random;
 
