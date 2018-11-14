@@ -1,4 +1,4 @@
-package _04_Intro_To_Enums;
+package _01_04_Intro_To_Enums;
 
 public class IntroToEnums {
 	// An enum (short for enumerated type) is a way to 

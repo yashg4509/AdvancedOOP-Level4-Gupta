@@ -1,4 +1,4 @@
-package _06_Snake;
+package _01_06_Snake;
 
 import java.awt.Color;
 import java.awt.Graphics;

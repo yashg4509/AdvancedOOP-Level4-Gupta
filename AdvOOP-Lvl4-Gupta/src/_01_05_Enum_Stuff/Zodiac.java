@@ -1,4 +1,4 @@
-package _05_Enum_Stuff;
+package _01_05_Enum_Stuff;
 
 public enum Zodiac {
 	ARIES, TAURUS, GEMINI, CANCER, LEO, VIRGO, 

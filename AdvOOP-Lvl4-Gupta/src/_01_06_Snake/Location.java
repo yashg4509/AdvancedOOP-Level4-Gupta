@@ -1,4 +1,4 @@
-package _06_Snake;
+package _01_06_Snake;
 
 public class Location {
 	public int x;
