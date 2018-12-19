@@ -1,17 +1,16 @@
 package _03_01_GottaCatchThemAll;
 
 public class ExceptionMethods {
-	public double divide(double a, double b) {
-		double q = a/b;
-		
-		if(q == 0.0) {
+	public double divide(double a, double b) throws IllegalArgumentException{
+		if(b == 0.0) {
 			throw new IllegalArgumentException();
 		}
-		
-		return q;
+		else {
+			return a/b;
+		}
 	}
 
-	public String reverse(String str) {
+	public String reverse(String str) throws IllegalStateException {
 		if(str.length() == 0) {
 			throw new IllegalStateException();
 		} else {
